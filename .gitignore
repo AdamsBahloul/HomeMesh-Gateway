@@ -1,0 +1,50 @@
+# Build directories
+build/
+dist/
+out/
+bin/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+compile_commands.json
+
+# Object files
+*.o
+*.obj
+*.elf
+*.map
+*.hex
+*.bin
+
+# IDEs
+.vscode/
+.idea/
+*.code-workspace
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node.js
+node_modules/
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.*
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
