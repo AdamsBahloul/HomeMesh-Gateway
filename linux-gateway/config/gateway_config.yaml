@@ -1,0 +1,20 @@
+gateway_id: "gw-rpi5-01"
+log_level: "INFO"
+
+serial:
+  port: "/dev/ttyAMA0"
+  baudrate: 115200
+  timeout_sec: 1.0
+
+mqtt:
+  host: "localhost"
+  port: 1883
+  use_tls: false
+  ca_cert: "/etc/mosquitto/certs/ca.crt"
+  client_cert: "/etc/mosquitto/certs/client.crt"
+  client_key: "/etc/mosquitto/certs/client.key"
+  keepalive_sec: 60
+
+health:
+  metrics_interval_sec: 10
+  temperature_alert_c: 80.0

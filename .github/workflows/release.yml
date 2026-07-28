@@ -1,0 +1,23 @@
+name: Release Firmware & Docker Artifacts
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Package Release Artifacts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create Release Binaries
+        run: |
+          echo "Packaging firmware & Docker images for release..."
+          tar -czvf smartbridge-gateway-bundle.tar.gz linux-gateway docker
+      
+      - name: Upload Release Bundle
+        uses: softprops/action-gh-release@v1
+        with:
+          files: smartbridge-gateway-bundle.tar.gz

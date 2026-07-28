@@ -1,0 +1,20 @@
+[Unit]
+Description=SmartBridge OS Embedded Linux Gateway Service
+After=network.target mosquitto.service
+Wants=mosquitto.service
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/smartbridge/linux-gateway
+ExecStart=/usr/bin/python3 src/main.py --config config/gateway_config.yaml
+Restart=always
+RestartSec=5s
+
+# Hardening attributes
+ProtectSystem=full
+ProtectHome=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

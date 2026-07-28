@@ -1,0 +1,5 @@
+user gateway_service
+topic readwrite home/device/+/telemetry
+topic readwrite home/device/+/status
+topic readwrite home/device/+/command
+topic readwrite home/device/+/ota

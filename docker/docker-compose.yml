@@ -1,0 +1,91 @@
+version: '3.8'
+
+services:
+  # 1. FastAPI Backend Microservice
+  backend:
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
+    container_name: smartbridge-backend
+    restart: always
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///./smartbridge.db
+      - REDIS_URL=redis://redis:6379/0
+      - MQTT_BROKER_HOST=mosquitto
+    ports:
+      - "8000:8000"
+    depends_on:
+      - redis
+    networks:
+      - smartbridge-net
+
+  # 2. Redis Caching & Message Queue
+  redis:
+    image: redis:7-alpine
+    container_name: smartbridge-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - smartbridge-net
+
+  # 3. Mosquitto MQTT Broker (TLS Enabled)
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: smartbridge-mosquitto
+    restart: always
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./mosquitto/acl/mosquitto.acl:/mosquitto/config/mosquitto.acl:ro
+    networks:
+      - smartbridge-net
+
+  # 4. Prometheus Metrics Collector
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: smartbridge-prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    networks:
+      - smartbridge-net
+
+  # 5. Grafana Observability Dashboard
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: smartbridge-grafana
+    restart: always
+    ports:
+      - "3001:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=smartbridge
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on:
+      - prometheus
+    networks:
+      - smartbridge-net
+
+  # 6. Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: smartbridge-nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - backend
+    networks:
+      - smartbridge-net
+
+networks:
+  smartbridge-net:
+    driver: bridge

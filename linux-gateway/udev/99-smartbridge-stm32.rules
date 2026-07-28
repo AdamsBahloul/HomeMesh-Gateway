@@ -1,0 +1,3 @@
+# Predictable symlink for STM32 USB-to-UART bridge
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="374b", SYMLINK+="smartbridge-stm32", MODE="0666"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="7523", SYMLINK+="smartbridge-ch340", MODE="0666"
