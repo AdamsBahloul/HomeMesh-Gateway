@@ -1,6 +1,6 @@
 import React from 'react';
 import { DeviceCard } from '../components/DeviceCard';
-import { Cpu, Plus } from 'lucide-react';
+import { Plus } from 'lucide-react';
 
 export const Devices: React.FC = () => {
   const devices = [

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Terminal, Filter, RefreshCw } from 'lucide-react';
+import { Filter } from 'lucide-react';
 
 export const Logs: React.FC = () => {
   const [logs] = useState([

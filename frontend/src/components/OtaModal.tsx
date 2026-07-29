@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { UploadCloud, CheckCircle2, AlertCircle, X } from 'lucide-react';
+import { UploadCloud, CheckCircle2, X } from 'lucide-react';
 
 interface OtaModalProps {
   isOpen: boolean;

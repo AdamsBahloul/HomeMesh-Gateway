@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Cpu, Power, Thermometer, Droplets, Zap, RefreshCw } from 'lucide-react';
+import { Cpu, Power, Thermometer, Droplets, Zap } from 'lucide-react';
 import { Device } from '../services/api';
 
 interface DeviceCardProps {
   device: Device;
-  onActuate?: (deviceId: string, command: str) => void;
+  onActuate?: (deviceId: string, command: string) => void;
 }
 
 export const DeviceCard: React.FC<DeviceCardProps> = ({ device, onActuate }) => {

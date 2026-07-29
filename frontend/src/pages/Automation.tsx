@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutomationRuleEditor } from '../components/AutomationRuleEditor';
-import { Zap, Trash2, CheckCircle2 } from 'lucide-react';
+import { Zap, Trash2 } from 'lucide-react';
 
 export const Automation: React.FC = () => {
   const rules = [

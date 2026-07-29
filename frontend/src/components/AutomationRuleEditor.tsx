@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Zap, Plus, Check } from 'lucide-react';
+import { Zap, Plus } from 'lucide-react';
 
 export const AutomationRuleEditor: React.FC = () => {
   const [ruleName, setRuleName] = useState('');

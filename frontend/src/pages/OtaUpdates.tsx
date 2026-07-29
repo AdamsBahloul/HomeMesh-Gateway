@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DownloadCloud, Upload, CheckCircle, ShieldAlert } from 'lucide-react';
+import { Upload } from 'lucide-react';
 import { OtaModal } from '../components/OtaModal';
 
 export const OtaUpdates: React.FC = () => {

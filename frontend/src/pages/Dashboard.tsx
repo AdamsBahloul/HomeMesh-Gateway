@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Cpu, Activity, ShieldCheck, Zap, AlertTriangle, RefreshCw } from 'lucide-react';
+import { Cpu, Activity, ShieldCheck, Zap } from 'lucide-react';
 import { DeviceCard } from '../components/DeviceCard';
 import { TelemetryChart } from '../components/TelemetryChart';
 import { TelemetryWebSocket } from '../services/websocket';
