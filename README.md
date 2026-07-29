@@ -1,6 +1,6 @@
 # SmartBridge OS (HomeMesh Gateway)
 
-[![CI/CD Pipeline](https://github.com/smartbridge-os/homemesh-gateway/actions/workflows/ci.yml/badge.svg)](https://github.com/smartbridge-os/homemesh-gateway/actions)
+[![CI/CD Pipeline](https://github.com/AdamsBahloul/homemesh-gateway/actions/workflows/ci.yml/badge.svg)](https://github.com/AdamsBahloul/homemesh-gateway/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![C17](https://img.shields.io/badge/Language-C17-blue.svg)](https://en.cppreference.com/w/c/17)
 [![Python 3.11+](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
@@ -12,7 +12,7 @@
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 ```
                                  [ Cloud / External User ]
@@ -58,38 +58,38 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- **⚡ STM32 C17 & FreeRTOS Firmware**:
+- **STM32 C17 & FreeRTOS Firmware**:
   - Non-blocking DMA-driven UART/SPI serial framing.
   - Multi-task FreeRTOS scheduler (`CommTask`, `SensorTask`, `OtaTask`, `WatchdogTask`).
   - Dual-bank flash layout for zero-downtime, fail-safe Over-the-Air (OTA) updates.
   - Custom byte-packed binary protocol with CRC-16 validation and sequence tracking.
-- **🐧 Embedded Linux Gateway**:
+- **Embedded Linux Gateway**:
   - Python/C++ daemon targetable to Yocto Linux or Raspberry Pi OS (systemd service).
   - High-throughput binary packet decoder and MQTT bridge.
   - Dynamic `udev` rules for deterministic USB/Serial device mapping.
   - Automated edge health metrics collection (CPU, RAM, disk, temperature, packet loss).
-- **🔒 Backend Microservices**:
+- **Backend Microservices**:
   - FastAPI asynchronous engine with SQLAlchemy 2.0 ORM and Alembic migrations.
   - PostgreSQL database persistence and Redis caching layer.
   - JWT authentication with Role-Based Access Control (`Admin`, `Operator`, `Viewer`).
   - Dynamic IF-THEN Automation Engine with real-time actuation over MQTT.
   - Cryptographic OTA firmware manager with SHA-256 integrity verification.
   - Integrated Edge AI anomaly detection stub using TensorFlow Lite / ONNX.
-- **🖥️ Industrial Web Dashboard**:
+- **Industrial Web Dashboard**:
   - Modern React 18 + TypeScript + Vite single-page application.
   - Tailwind CSS dark-mode design system with glassmorphism aesthetic.
   - Real-time WebSockets telemetry feed and interactive Recharts data visualization.
   - Drag-and-drop firmware deployment modal with live flash progress indicator.
-- **📊 Observability & Monitoring**:
+- **Observability & Monitoring**:
   - Pre-configured Grafana dashboard and Prometheus metrics scraper.
   - Containerized Mosquitto MQTT broker with TLS 1.3 encryption and ACL policy.
   - Complete Docker Compose production setup with healthchecks and isolated networks.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 SmartBridge OS/
@@ -109,7 +109,7 @@ SmartBridge OS/
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -158,7 +158,7 @@ python tools/packet_simulator.py --nodes 3 --interval 2.0
 
 ---
 
-## ⚡ STM32 Firmware & Binary Protocol
+## STM32 Firmware & Binary Protocol
 
 The communication protocol uses packed binary structures for maximum efficiency over UART/RS485:
 
@@ -175,7 +175,7 @@ The communication protocol uses packed binary structures for maximum efficiency 
 
 ---
 
-## 📈 Performance Benchmarks
+## Performance Benchmarks
 
 > All benchmarks were measured on the reference hardware configuration unless otherwise specified.  
 > **Gateway**: Raspberry Pi 5 (Cortex-A76 @ 2.4 GHz, 8 GB LPDDR4X) running Raspberry Pi OS Lite (64-bit, kernel 6.6).  
@@ -184,7 +184,7 @@ The communication protocol uses packed binary structures for maximum efficiency 
 
 ---
 
-### 🔌 STM32 Firmware — Real-Time Performance
+### STM32 Firmware — Real-Time Performance
 
 | Metric | Value | Conditions |
 |--------|-------|------------|
@@ -200,7 +200,7 @@ The communication protocol uses packed binary structures for maximum efficiency 
 
 ---
 
-### 🐧 Embedded Linux Gateway Daemon
+### Embedded Linux Gateway Daemon
 
 | Metric | Value | Conditions |
 |--------|-------|------------|
@@ -217,7 +217,7 @@ The communication protocol uses packed binary structures for maximum efficiency 
 
 ---
 
-### ⚙️ FastAPI Backend — Throughput & Latency
+### FastAPI Backend — Throughput & Latency
 
 Tested with [`wrk`](https://github.com/wg/wrk) (12 threads, 400 connections, 30 s duration) on localhost.
 
@@ -236,7 +236,7 @@ Tested with [`wrk`](https://github.com/wg/wrk) (12 threads, 400 connections, 30 
 
 ---
 
-### 🧠 Rule Engine — Automation Latency
+### Rule Engine — Automation Latency
 
 | Metric | Value | Notes |
 |--------|-------|-------|
@@ -248,7 +248,7 @@ Tested with [`wrk`](https://github.com/wg/wrk) (12 threads, 400 connections, 30 
 
 ---
 
-### 🖥️ React 18 Dashboard — Frontend Performance
+### React 18 Dashboard — Frontend Performance
 
 Audited with Lighthouse CI (production Vite build, Chrome headless, throttled 4G).
 
@@ -266,7 +266,7 @@ Audited with Lighthouse CI (production Vite build, Chrome headless, throttled 4G
 
 ---
 
-### 🔒 Security & Protocol Integrity
+### Security & Protocol Integrity
 
 | Metric | Value |
 |--------|-------|
@@ -279,7 +279,7 @@ Audited with Lighthouse CI (production Vite build, Chrome headless, throttled 4G
 
 ---
 
-### 📦 Docker Stack — Resource Utilisation
+### Docker Stack — Resource Utilisation
 
 Measured at steady state with 3 simulated STM32 nodes and the dashboard open.
 
@@ -295,6 +295,6 @@ Measured at steady state with 3 simulated STM32 nodes and the dashboard open.
 
 ---
 
-## 📜 License
+## License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
