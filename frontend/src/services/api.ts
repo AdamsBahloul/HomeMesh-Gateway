@@ -19,7 +19,7 @@ api.interceptors.request.use((config) => {
 
 export interface Device {
   id: number;
-  device_id: str;
+  device_id: string;
   name: string;
   device_type: string;
   status: string;
